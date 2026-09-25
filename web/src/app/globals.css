@@ -473,7 +473,13 @@ h1, h2, h3, h4, h5, h6 {
   animation: pop 0.3s ease forwards;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE & OVERFLOW ===== */
+.overflow-x-auto {
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (max-width: 768px) {
   .container, .container-sm {
     padding: 0 16px;
@@ -487,21 +493,42 @@ h1, h2, h3, h4, h5, h6 {
     width: 44px;
     height: 42px;
     font-size: 0.9rem;
+    padding: 2px;
   }
 
   .stat-value {
     font-size: 1.5rem;
+  }
+  
+  .card {
+    padding: 20px 16px !important; /* Override larger paddings on mobile */
+  }
+
+  h1 {
+    font-size: clamp(1.375rem, 5vw, 1.75rem) !important;
   }
 }
 
 @media (max-width: 480px) {
   .btn-lg {
     padding: 12px 20px;
+    font-size: 0.9rem;
   }
 
   .matrix-cell {
     width: 38px;
     height: 38px;
     font-size: 0.85rem;
+  }
+  
+  .choice-option {
+    padding: 12px;
+    font-size: 0.875rem;
+  }
+  
+  .choice-letter {
+    min-width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
   }
 }

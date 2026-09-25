@@ -1,4 +1,4 @@
-# CNN Quiz Trainer
+# Kuis Viskom CNN
 
 Platform latihan kuis **Convolutional Neural Network (CNN)** berdasarkan materi kuliah Pengolahan Citra Digital.
 

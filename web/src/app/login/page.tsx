@@ -220,7 +220,7 @@ export default function LoginPage() {
             </svg>
           </div>
           <h1 style={{ fontSize: '1.625rem', fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.02em', marginBottom: 6 }}>
-            CNN Quiz Trainer
+            Kuis Viskom CNN
           </h1>
           <p style={{ color: 'var(--color-text-3)', fontSize: '0.9375rem' }}>
             Latihan kuis CNN — Pengolahan Citra Digital
@@ -303,7 +303,7 @@ export default function LoginPage() {
               <PasswordField
                 label="Konfirmasi Password" value={password2}
                 onChange={v => { setPassword2(v); setPw2Error(''); }}
-                placeholder="Ulangi password" error={pw2Err}
+                placeholder="Ulangi password" error={pw2Error}
               />
             </div>
 

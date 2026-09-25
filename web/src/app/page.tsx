@@ -45,7 +45,7 @@ export default function HomePage() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
-          <span className="navbar-brand">CNN Quiz Trainer</span>
+          <span className="navbar-brand">Kuis Viskom CNN</span>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             {/* User chip */}
             <div

@@ -1,10 +1,12 @@
 import type { Question } from '@/types/quiz';
+import { ADDITIONAL_QUESTIONS } from './questions-part2';
 
 /**
- * Bank Soal CNN Quiz Trainer
- * 60 soal berdasarkan materi PPT "14 - Convolution Neural Network (CNN)"
+ * Bank Soal Kuis Viskom CNN
+ * 100 soal berdasarkan materi PPT "14 - Convolution Neural Network (CNN)"
  */
 export const QUESTION_BANK: Question[] = [
+  ...ADDITIONAL_QUESTIONS,
   // ===== CONVOLUTION — 20 SOAL =====
 
   // Convolution — Numeric (dot product)
@@ -275,7 +277,7 @@ export const QUESTION_BANK: Question[] = [
       input: [[1,0,2],[3,1,4],[2,3,1]],
       kernel: [[2,0,1],[0,3,0],[1,0,2]],
     },
-    answer: 22,
+    answer: 11,
     explanation: 'Perhatikan elemen yang memiliki bobot besar (3 di tengah, 2 di sudut).',
     explanationSteps: [
       '(1×2)+(0×0)+(2×1)',

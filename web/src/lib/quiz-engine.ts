@@ -254,8 +254,37 @@ export function validateAnswer(question: Question, userRaw: string): boolean {
 
     case 'short_answer': {
       if (!keywords || keywords.length === 0) return false;
-      const userLower = userRaw.toLowerCase();
-      const matched   = keywords.filter(kw => userLower.includes(kw.toLowerCase()));
+      const userWords = userRaw.toLowerCase().split(/[\s,.-]+/);
+      
+      const matched = keywords.filter(kw => {
+        const kwLower = kw.toLowerCase();
+        // Cek apakah ada kata dari user yang cukup mirip dengan keyword
+        return userWords.some(uw => {
+          if (uw.length < 3) return uw === kwLower; // Kata pendek harus sama persis
+          
+          // Helper Levenshtein Distance sederhana untuk toleransi typo
+          const a = uw;
+          const b = kwLower;
+          const matrix = Array(b.length + 1).fill(null).map(() => Array(a.length + 1).fill(null));
+          for (let i = 0; i <= a.length; i++) matrix[0][i] = i;
+          for (let j = 0; j <= b.length; j++) matrix[j][0] = j;
+          for (let j = 1; j <= b.length; j++) {
+            for (let i = 1; i <= a.length; i++) {
+              const indicator = a[i - 1] === b[j - 1] ? 0 : 1;
+              matrix[j][i] = Math.min(
+                matrix[j][i - 1] + 1,
+                matrix[j - 1][i] + 1,
+                matrix[j - 1][i - 1] + indicator
+              );
+            }
+          }
+          const distance = matrix[b.length][a.length];
+          // Toleransi: panjang kata <= 5 boleh beda 1 huruf, > 5 boleh beda 2 huruf
+          const tolerance = kwLower.length <= 5 ? 1 : 2;
+          return distance <= tolerance || kwLower.includes(uw) || uw.includes(kwLower);
+        });
+      });
+      
       return matched.length >= Math.ceil(keywords.length * 0.4);
     }
 

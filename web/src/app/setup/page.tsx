@@ -182,7 +182,7 @@ export default function SetupPage() {
                 >
                   Jumlah Soal
                 </label>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
                   {COUNTS.map(n => (
                     <button
                       key={n}
@@ -198,11 +198,28 @@ export default function SetupPage() {
                         fontSize: '1rem',
                         fontWeight: count === n ? 700 : 500,
                         color: count === n ? 'var(--color-primary)' : 'var(--color-text)',
+                        flex: 1,
                       }}
                     >
                       {n}
                     </button>
                   ))}
+                  <div style={{ flex: 1, position: 'relative' }}>
+                    <input 
+                      type="number"
+                      className="input input-mono"
+                      value={count || ''}
+                      onChange={e => setCount(Math.max(1, parseInt(e.target.value) || 0))}
+                      placeholder="Lainnya"
+                      style={{ 
+                        width: '100%', 
+                        padding: '11px 14px', 
+                        borderColor: !COUNTS.includes(count) ? 'var(--color-primary)' : 'var(--color-border-2)',
+                        background: !COUNTS.includes(count) ? 'var(--color-primary-light)' : 'var(--color-surface)',
+                      }}
+                      min="1"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

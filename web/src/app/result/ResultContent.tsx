@@ -50,7 +50,7 @@ export default function ResultContent() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="container" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-          <span className="navbar-brand">CNN Quiz Trainer</span>
+          <span className="navbar-brand">Kuis Viskom CNN</span>
         </div>
       </nav>
 

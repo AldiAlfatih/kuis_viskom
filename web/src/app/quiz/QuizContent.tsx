@@ -206,7 +206,9 @@ export default function QuizContent() {
           >
             Isi matriks output ({rows}×{cols}):
           </label>
-          <MatrixInput rows={rows} cols={cols} onChange={setMatrixAnswer} />
+          <div className="overflow-x-auto">
+            <MatrixInput rows={rows} cols={cols} onChange={setMatrixAnswer} />
+          </div>
         </div>
       );
     }
@@ -355,7 +357,7 @@ export default function QuizContent() {
     return (
       <div style={{ marginBottom: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {input && (
-          <div>
+          <div className="overflow-x-auto">
             <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-text-3)', marginBottom: 6 }}>
               Input:
             </div>
@@ -363,7 +365,7 @@ export default function QuizContent() {
           </div>
         )}
         {kernel && (
-          <div>
+          <div className="overflow-x-auto">
             <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-text-3)', marginBottom: 6 }}>
               Kernel:
             </div>
@@ -371,7 +373,7 @@ export default function QuizContent() {
           </div>
         )}
         {feature_map && (
-          <div>
+          <div className="overflow-x-auto">
             <div style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'var(--color-text-3)', marginBottom: 6 }}>
               Feature Map:
             </div>
@@ -391,7 +393,7 @@ export default function QuizContent() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
-          <span className="navbar-brand">CNN Quiz Trainer</span>
+          <span className="navbar-brand">Kuis Viskom CNN</span>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <span style={{ fontSize: '0.875rem', color: 'var(--color-text-3)', fontWeight: 600 }}>
               Skor: {currentScore}/{userAnswers.length}
